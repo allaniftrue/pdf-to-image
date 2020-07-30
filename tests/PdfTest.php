@@ -122,6 +122,15 @@ class PdfTest extends TestCase
         $this->assertEquals(99, $imagick->getCompressionQuality());
     }
 
+    /** @test */
+    public function it_will_get_number_of_pages()
+    {
+        $pageCount = (new Pdf($this->multipageTestFile))
+            ->getNumberOfPages();
+
+        $this->assertEquals($pageCount, 3);
+    }
+
     public function invalid_page_number_provider()
     {
         return [[5], [0], [-1]];

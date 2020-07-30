@@ -35,9 +35,7 @@ class Pdf
             throw new PdfDoesNotExist("File `{$pdfFile}` does not exist");
         }
 
-        $this->imagick = new Imagick();
-
-        $this->imagick->pingImage($pdfFile);
+        $this->imagick = new Imagick($pdfFile);
 
         $this->numberOfPages = $this->imagick->getNumberImages();
 
